@@ -1,3 +1,4 @@
-/home/nmannan/team-project/Roomz/src/main/java/com/google/sps/servlets/FormHandlerServlet.java
-/home/nmannan/team-project/Roomz/src/main/java/com/google/sps/ServerMain.java
-/home/nmannan/team-project/Roomz/src/main/java/com/google/sps/servlets/HelloWorldServlet.java
+/home/mecheverria/sps-team-project/Roomz/src/main/java/com/google/sps/ServerMain.java
+/home/mecheverria/sps-team-project/Roomz/src/main/java/com/google/sps/servlets/HelloWorldServlet.java
+/home/mecheverria/sps-team-project/Roomz/src/main/java/com/google/sps/servlets/EditProfileFormHandlerServlet.java
+/home/mecheverria/sps-team-project/Roomz/src/main/java/com/google/sps/servlets/EditListingFormHandlerServlet.java

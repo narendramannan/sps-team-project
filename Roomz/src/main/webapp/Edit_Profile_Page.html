@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" content = "width=device-width, initial-scale=1">
+        <title>Edit Profile</title>
+        <!-- W3 Schools Stylesheets -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="slider stylesheet" href="slider style.css">
+        <script type="text/javascript" src="slider script.js"></script>
+    </head>
+    <body>
+        <div class="w3-card-4">
+            <div class="w3-container w3-green">
+                <h2>Edit Profile</h2>
+            </div>
+            <form class="w3-container" action="/edit-profile-form-handler" method = "POST">
+                <!-- First Name Input -->
+                <p>      
+                <label class="w3-text-brown"><b>First Name</b></label>
+                <input class="w3-input w3-border w3-sand" name="first-name-input" type="text"></p>
+                <!-- Last Name Input -->
+                <p>
+                <label class="w3-text-brown"><b>Last Name</b></label>
+                <input class="w3-input w3-border w3-sand" name="last-name-input" type="text"></p>
+                <!-- About me Input -->
+                <p>
+                <label class="w3-text-brown"><b>About me</b></label>
+                <input class="w3-input w3-border w3-sand" name="about-me-input" type="text"></p>
+                <!-- What I am looking for Input-->
+                <label class="w3-text-brown"><b>Looking for...</b></label>
+                <input class="w3-input w3-border w3-sand" name="input" type="text"></p>
+                <!-- Phone Number Input -->
+                <p>
+                <label class="w3-text-brown"><b>Phone Number</b></label>
+                <input class="w3-input w3-border w3-sand" name="phone-number-input" type="text"></p>
+                <!-- Email Input -->
+                <p>
+                <label class="w3-text-brown"><b>Email</b></label>
+                <input class="w3-input w3-border w3-sand" name="email-input" type="text"></p>
+                <!-- Roomate or Listing Owner Checkbox -->
+                <input type="checkbox" id="Person1" name="Person1" value="Roomate">
+                <label for="Person1"> Roomate</label><br>
+                <input type="checkbox" id="Person2" name="Person2" value="Owner">
+                <label for="Person2"> Owner</label><br>
+                <!-- Submit -->
+                <p>
+                <button class="w3-btn w3-green">Submit</button></p>
+            </form>
+        </div>
+    </body>
+</html>

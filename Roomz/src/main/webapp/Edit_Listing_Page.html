@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" content = "width=device-width, initial-scale=1">
+        <title>Edit Profile</title>
+        <!-- W3 Schools Stylesheets -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="slider stylesheet" href="slider style.css">
+        <script type="text/javascript" src="slider script.js"></script>
+    </head>
+    <body>
+        <div class="w3-card-4">
+            <div class="w3-container w3-green">
+                <h2>Edit Listing</h2>
+            </div>
+            <form class="w3-container" action="/edit-listing-form-handler" method = "POST">
+                <!-- Location Input -->
+                <p>      
+                <label class="w3-text-brown"><b>Location (zip code)</b></label>
+                <input class="w3-input w3-border w3-sand" name="location-input" type="text"></p>
+                <!-- Gallery Floorplan Input -->
+                <p>
+                <label class="w3-text-brown"><b>Gallery</b></label>
+                <input class="w3-input w3-border w3-sand" name="gallery-input" type="text"></p>
+                <!-- Number of Bedrooms Input -->
+                <p>
+                <label class="w3-text-brown"><b>Number of Bedrooms</b></label>
+                <input class="w3-input w3-border w3-sand" name="num-bedrooms-input" type="text"></p>
+                <!-- Number of Roomates Input-->
+                <label class="w3-text-brown"><b>Current Number of Roommates</b></label>
+                <input class="w3-input w3-border w3-sand" name="current-num-roommate-input" type="text"></p>
+                <!-- Vacancies Input -->
+                <p>
+                <label class="w3-text-brown"><b>Open Vacancies</b></label>
+                <input class="w3-input w3-border w3-sand" name="vacancies-input" type="text"></p>
+                <!-- Description Input -->
+                <p>
+                <label class="w3-text-brown"><b>Description</b></label>
+                <input class="w3-input w3-border w3-sand" name="description-input" type="text"></p>
+                <!-- Lease Term Input -->
+                <p>
+                <label class="w3-text-brown"><b>Lease Term</b></label>
+                <input class="w3-input w3-border w3-sand" name="lease-term-input" type="text"></p>
+                <!-- Price -->
+                <label class="w3-text-brown"><b>Price (lease total cost + utilities)</b></label>
+                <input class="w3-input w3-border w3-sand" name="price-input" type="text"></p>
+                <!-- Submit -->
+                <p>
+                <button class="w3-btn w3-green">Submit</button></p>
+            </form>
+        </div>
+    </body>
+</html>
