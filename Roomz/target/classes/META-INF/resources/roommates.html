@@ -37,8 +37,8 @@
         </div>
         
         <div id="signedIn"> <!-- To toggle the below buttons based on whether a user is signed in or not -->
-            <a href="profile.html" class="w3-bar-item w3-button"></a>
-            <a href="listing.html" class="w3-bar-item w3-button"></a>
+            <a href="profile.html" class="w3-bar-item w3-button">My Profile</a>
+            <a href="listing.html" class="w3-bar-item w3-button">My Listings</a>
             <a id="logout" class="w3-bar-item w3-button">Log out</a>
         </div>
     </nav>
@@ -123,16 +123,31 @@
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
 
+        document.getElementById('logout').addEventListener('click', LogoutUser)
+
         function checkAuthState() {
             firebase.auth().onAuthStateChanged(user => {
                 if (user) {
                     // document.getElementById('dashboard').style.display = "block";
-                    document.getElementById('loginScreen').style.display = "none";
+                    // document.getElementById('loginScreen').style.display = "none";
                     document.getElementById('signedIn').style.display = "block";
-                    showUserDetails(user)
+                    document.getElementById('signedOut').style.display = "none";
+                    // showUserDetails(user)
                 } else {
+                    document.getElementById('signedIn').style.display = "none";
 
                 }
+            })
+        }
+
+        function LogoutUser() {
+            console.log('Logout Btn Call')
+            firebase.auth().signOut().then(() => {
+                window.location = "login.html";
+                // document.getElementById('loginScreen').style.display = "block";
+                // document.getElementById('dashboard').style.display = "none";
+            }).catch(e => {
+                console.log(e)
             })
         }
         

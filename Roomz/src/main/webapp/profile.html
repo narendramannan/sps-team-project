@@ -12,22 +12,37 @@
 </head>
 
 <body>
-    <div>
-        <!-- NAVIGATION BAR -->
-        <nav class="w3-bar w3-theme-d5 w3-padding">
-            <a href="#" class="w3-bar-item w3-button">ROOMIEZ</a>
+    <!-- NAVIGATION BAR -->
+    <nav class="w3-bar w3-theme-d5 w3-padding">
+        <a href="#" class="w3-bar-item w3-button"><b>ROOMIEZ</b></a>
+        <div class="w3-dropdown-hover">
+            <button class="w3-button">Browse</button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a href="roommates.html" class="w3-bar-item w3-button">Roommates</a>
+                <a href="rooms.html" class="w3-bar-item w3-button">Rooms</a>
+            </div>
+        </div>
+
+        <div id="signedOut">
+            <!-- To toggle the Sign in/Register button based on whether a user is signed in -->
+            <a href="login.html" class="w3-bar-item w3-button">Sign In/Register</a>
+        </div>
+
+        <div id="signedIn">
+            <!-- To toggle the below buttons based on whether a user is signed in or not -->
+
             <div class="w3-dropdown-hover">
-                <button class="w3-button">Browse</button>
+                <button id="userSignedIn" class="w3-button">User</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="roommates.html" class="w3-bar-item w3-button">Roommates</a>
-                    <a href="rooms.html" class="w3-bar-item w3-button">Rooms</a>
+                    <a href="profile.html" class="w3-bar-item w3-button">My Profile</a>
+                    <a href="edit-profile.html" class="w3-bar-item w3-button">Edit Profile</a>
                 </div>
             </div>
-            <a href="profile.html" class="w3-bar-item w3-button">User Profile</a>
-            <a href="listing.html" class="w3-bar-item w3-button">User Listings</a>
-            <a href="login.html" class="w3-bar-item w3-button">Sign In/Register</a>
-        </nav>
-    </div>
+            <a href="listing.html" class="w3-bar-item w3-button">My Listings</a>
+            <a id="logout" class="w3-bar-item w3-button">Log out</a>
+        </div>
+    </nav>
+
     <div>
 
         <div id="dashboard">
@@ -35,6 +50,58 @@
         </div>
 
     </div>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <!-- FIREBASE AUTHENTICATION -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyC4El1FbprSPpcq0FlRxzm79mE6vyU2dEY",
+            authDomain: "summer21-sps-7.firebaseapp.com",
+            projectId: "summer21-sps-7",
+            storageBucket: "summer21-sps-7.appspot.com",
+            messagingSenderId: "1046630479691",
+            appId: "1:1046630479691:web:596d4dbc7586b5152f9ace",
+            measurementId: "G-GETT4XG4HE"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        function showUserDetails(user) {
+            document.getElementById('userDetail').innerHTML = `
+                <img src="${user.photoURL}" style="width:10%">
+                <p>Name: ${user.displayName}</p>
+                <p>Email: ${user.email}</p>
+            `
+        }
+
+        function checkAuthState() {
+            firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                    // document.getElementById('dashboard').style.display = "block";
+                    // document.getElementById('loginScreen').style.display = "none";
+                    document.getElementById('signedIn').style.display = "block";
+                    document.getElementById('signedOut').style.display = "none";
+                    document.getElementById('userSignedIn').innerText = user.displayName;
+                    console.log(user);
+                    showUserDetails(user)
+                } else {
+                    document.getElementById('signedIn').style.display = "none";
+
+                }
+            })
+        }
+        checkAuthState()
+
+    </script>
 </body>
 
 </html>

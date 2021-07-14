@@ -29,10 +29,14 @@
                 <a href="rooms.html" class="w3-bar-item w3-button">Rooms</a>
             </div>
         </div>
-        <a href="login.html" class="w3-bar-item w3-button">Sign In/Register</a>
-        <div id="signedIn">
-            <a href="profile.html" class="w3-bar-item w3-button">User Profile</a>
-            <a href="listing.html" class="w3-bar-item w3-button">User Listings</a>
+        
+        <div id="signedOut"> <!-- To toggle the Sign in/Register button based on whether a user is signed in -->
+            <a href="login.html" class="w3-bar-item w3-button">Sign In/Register</a>
+        </div>
+        
+        <div id="signedIn"> <!-- To toggle the below buttons based on whether a user is signed in or not -->
+            <a href="profile.html" class="w3-bar-item w3-button">My Profile</a>
+            <a href="listing.html" class="w3-bar-item w3-button">My Listings</a>
             <a id="logout" class="w3-bar-item w3-button">Log out</a>
         </div>
     </nav>
@@ -104,9 +108,10 @@
                     // document.getElementById('dashboard').style.display = "block";
                     document.getElementById('loginScreen').style.display = "none";
                     document.getElementById('signedIn').style.display = "block";
-                    showUserDetails(user)
+                    document.getElementById('signedOut').style.display = "none";
+                    // showUserDetails(user)
                 } else {
-
+                    
                 }
             })
         }
