@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 /home/mecheverria/sps-team-project/Roomz/src/main/java/com/google/sps/ServerMain.java
 /home/mecheverria/sps-team-project/Roomz/src/main/java/com/google/sps/servlets/HelloWorldServlet.java
 /home/mecheverria/sps-team-project/Roomz/src/main/java/com/google/sps/servlets/EditProfileFormHandlerServlet.java
 /home/mecheverria/sps-team-project/Roomz/src/main/java/com/google/sps/servlets/EditListingFormHandlerServlet.java
+=======
+/home/nmannan/team-project/Roomz/src/main/java/com/google/sps/servlets/CreateProfileServlet.java
+/home/nmannan/team-project/Roomz/src/main/java/com/google/sps/ServerMain.java
+>>>>>>> ca9a73b6865c6a0bc55060cff441e043c40f1eae
