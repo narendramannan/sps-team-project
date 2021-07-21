@@ -22,13 +22,22 @@
                 <a href="rooms.html" class="w3-bar-item w3-button">Rooms</a>
             </div>
         </div>
-        
-        <div id="signedOut"> <!-- To toggle the Sign in/Register button based on whether a user is signed in -->
+
+        <div id="signedOut">
+            <!-- To toggle the Sign in/Register button based on whether a user is signed in -->
             <a href="login.html" class="w3-bar-item w3-button">Sign In/Register</a>
         </div>
-        
-        <div id="signedIn"> <!-- To toggle the below buttons based on whether a user is signed in or not -->
-            <a href="profile.html" class="w3-bar-item w3-button">My Profile</a>
+
+        <div id="signedIn">
+            <!-- To toggle the below buttons based on whether a user is signed in or not -->
+
+            <div class="w3-dropdown-hover">
+                <button id="userSignedIn" class="w3-button">User</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="profile.html" class="w3-bar-item w3-button">My Profile</a>
+                    <a href="edit-profile.html" class="w3-bar-item w3-button">Edit Profile</a>
+                </div>
+            </div>
             <a href="listing.html" class="w3-bar-item w3-button">My Listings</a>
             <a id="logout" class="w3-bar-item w3-button">Log out</a>
         </div>
@@ -56,6 +65,19 @@
         </form>
         
     </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <!-- FIREBASE AUTHENTICATION -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+    <script src="firebaseAuth.js"></script>
+    <script src="logout.js"></script>
+    <script>
+        document.getElementById('logout').addEventListener('click', LogoutUser)
+    </script>
 </body>
 
 </html>
