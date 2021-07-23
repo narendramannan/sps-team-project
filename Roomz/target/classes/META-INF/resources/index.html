@@ -2,33 +2,56 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
+
     <title>Roomiez</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- W3 Schools Stylesheets -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-green.css">
-    <!-- Javascript file -->
-    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body
+        {
+            font-family: "Courier New", monospace
+        }
+    </style>
+    
 </head>
 
 <body>
-    <div>
-        <!-- NAVIGATION BAR -->
-        <header>
-            <nav class="w3-bar w3-theme-d5 w3-padding">
-                <a href="#" class="w3-bar-item w3-button">ROOMIEZ</a>
-                <div class="w3-dropdown-hover">
-                    <button class="w3-button">Browse</button>
-                    <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                        <a href="roommates.html" class="w3-bar-item w3-button">Roommates</a>
-                        <a href="rooms.html" class="w3-bar-item w3-button">Rooms</a>
-                    </div>
+    <!-- NAVIGATION BAR -->
+    <nav class="w3-bar w3-theme-d5 w3-padding">
+        <a href="#" class="w3-bar-item w3-button"><b>ROOMIEZ</b></a>
+        <div class="w3-dropdown-hover">
+            <button class="w3-button">Browse</button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a href="roommates.html" class="w3-bar-item w3-button">Roommates</a>
+                <a href="rooms.html" class="w3-bar-item w3-button">Rooms</a>
+            </div>
+        </div>
+
+        <div id="signedOut">
+            <!-- To toggle the Sign in/Register button based on whether a user is signed in -->
+            <a href="login.html" class="w3-bar-item w3-button">Sign In/Register</a>
+        </div>
+
+        <div id="signedIn">
+            <!-- To toggle the below buttons based on whether a user is signed in or not -->
+
+            <div class="w3-dropdown-hover">
+                <button id="userSignedIn" class="w3-button">User</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="profile.html" class="w3-bar-item w3-button">My Profile</a>
+                    <a href="edit-profile.html" class="w3-bar-item w3-button">Edit Profile</a>
                 </div>
-                <a href="profile.html" class="w3-bar-item w3-button">User Profile</a>
-                <a href="listing.html" class="w3-bar-item w3-button">User Listings</a>
-                <a href="#" class="w3-bar-item w3-button">Sign In/Register</a>
-            </nav>
-        </header>
+            </div>
+            <a href="listing.html" class="w3-bar-item w3-button">My Listings</a>
+            <a id="logout" class="w3-bar-item w3-button">Log out</a>
+        </div>
+    </nav>
         <div class="w3-container w3-row">
             <div class="w3-center">
                 <h1>What can we help you find?</h1>
@@ -57,7 +80,20 @@
                 </div>
             </div>
         </div> <!--  content  -->
-    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <!-- FIREBASE AUTHENTICATION -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+
+    <script src="firebaseAuth.js"></script>
+    <script src="logout.js"></script>
+    <script>
+        document.getElementById('logout').addEventListener('click', LogoutUser)
+    </script>
 </body>
 
 </html>

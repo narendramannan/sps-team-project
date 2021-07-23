@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Roomiez</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- W3 Schools Stylesheets -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-green.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: "Courier New", monospace
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVIGATION BAR -->
+    <nav class="w3-bar w3-theme-d5 w3-padding">
+        <a href="#" class="w3-bar-item w3-button"><b>ROOMIEZ</b></a>
+        <div class="w3-dropdown-hover">
+            <button class="w3-button">Browse</button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a href="roommates.html" class="w3-bar-item w3-button">Roommates</a>
+                <a href="rooms.html" class="w3-bar-item w3-button">Rooms</a>
+            </div>
+        </div>
+        
+        <div id="signedOut"> <!-- To toggle the Sign in/Register button based on whether a user is signed in -->
+            <a href="login.html" class="w3-bar-item w3-button">Sign In/Register</a>
+        </div>
+        
+        <div id="signedIn"> <!-- To toggle the below buttons based on whether a user is signed in or not -->
+            <a href="profile.html" class="w3-bar-item w3-button">My Profile</a>
+            <a href="listing.html" class="w3-bar-item w3-button">My Listings</a>
+            <a id="logout" class="w3-bar-item w3-button">Log out</a>
+        </div>
+    </nav>
+
+    <h1>Welcome to ROOMIEZ</h1>
+    <div id="loginScreen">
+        <button id="login">Login with Google</button>
+    </div>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <!-- FIREBASE AUTHENTICATION -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+
+    <script src="firebaseAuth.js"></script>
+    <script src="logout.js"></script>
+    
+    <script>
+
+        document.getElementById('signedIn').style.display = "none";
+        document.getElementById('login').addEventListener('click', GoogleLogin)
+        document.getElementById('logout').addEventListener('click', LogoutUser)
+
+        let provider = new firebase.auth.GoogleAuthProvider()
+
+        function GoogleLogin() {
+            console.log('Login Btn Call')
+            firebase.auth().signInWithPopup(provider).then(res => {
+                console.log(res.user)
+                // document.getElementById('dashboard').style.display = "block";
+                document.getElementById('loginScreen').style.display = "none";
+                document.getElementById('signedIn').style.display = "block";
+                // showUserDetails(res.user);
+                window.location = "roommates.html";
+            }).catch(e => {
+                console.log(e)
+            })
+        }
+
+    </script>
+
+</body>
+
+</html>
